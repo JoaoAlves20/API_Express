@@ -1,9 +1,9 @@
-const express = require('express');
+const express = require("express");
 
-const routes = require('./routes')
+const routes = require("./routes")
 
 const app = express();
 
 app.use(routes);
 
-app.listen(1807, () => console.log('Server started at http://localhost:1807'));
+app.listen(1807, () => console.log("Server started at http://localhost:1807"));
