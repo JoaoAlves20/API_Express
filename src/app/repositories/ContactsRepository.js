@@ -23,12 +23,12 @@ class ContactsRepository {
   }
   findById(id) {
     return new Promise((resolve) => {
-      {resolve(contacts.find((contact) => contact.id == id))}
+      {resolve(contacts.find((contact) => contact.id === id))}
     });
   }
   findByEmail(email) {
     return new Promise((resolve) => {
-      {resolve(contacts.find((contact) => contact.email == email))}
+      {resolve(contacts.find((contact) => contact.email === email))}
     });
   }
   delete(id) {
@@ -48,6 +48,21 @@ class ContactsRepository {
       };
       contacts.push(newContact);
       {resolve(newContact)}
+    });
+  }
+  update(id, {name, email, phone, category_id}) {
+    return new Promise((resolve) => {
+      const updateContact = {
+        id,
+        name,
+        email,
+        phone,
+        category_id,
+      };
+      contacts = contacts.map((contact) => {
+        return contact.id === id ? updateContact : contact;
+      })
+      {resolve(updateContact)}
     });
   }
 }
