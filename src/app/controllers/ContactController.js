@@ -1,11 +1,11 @@
-const ContactsRepository = require("../repositories/ContactsRepository")
+const ContactsRepository = require("../repositories/ContactsRepository");
 
 class ContactController {
   async index(req, res) {
     const { orderBy } = req.query;
     const contacts = await ContactsRepository.findAll(orderBy);
 
-    res.json(contacts)
+    res.json(contacts);
   }
 
   async show(req, res) {
@@ -16,7 +16,7 @@ class ContactController {
       return res.status(404).json({error: "User not found"});
     }
 
-    res.json(contact)
+    res.json(contact);
   }
 
   async store(req, res) {
@@ -62,7 +62,7 @@ class ContactController {
     const { id } = req.params;
 
     ContactsRepository.delete(id);
-    res.sendStatus(204)
+    res.sendStatus(204);
   }
 }
 
